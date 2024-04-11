@@ -1,0 +1,25 @@
+receivers:
+  otlp: 
+    protocols:
+      grpc:
+      http:
+        
+processors:
+  batch:
+
+exporters:
+  # NOTE: Prior to v0.86.0 use `logging` instead of `debug`.
+  prefix_compressed_exporter:
+    endpoint: http://compressorgateway:4318
+    tls:
+      insecure: true
+
+service:
+  pipelines:
+    traces:
+      receivers: [otlp]
+      processors: [batch]
+      exporters: [prefix_compressed_exporter]
+  telemetry:
+    logs:
+      level: debug

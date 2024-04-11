@@ -72,6 +72,10 @@ cd ../socialNetwork
 ../wrk2/wrk -D exp -t <num-threads> -c <num-conns> -d <duration> -L -s ./wrk2/scripts/social-network/compose-post.lua http://localhost:8080/wrk2-api/post/compose -R <reqs-per-sec>
 ```
 
+```
+../wrk2/wrk -D exp -t 10 -c 10 -d 10s -L -s ./wrk2/scripts/social-network/compose-post.lua http://localhost:8080/wrk2-api/post/compose -R 1000
+```
+
 #### Read home timelines
 
 ```bash

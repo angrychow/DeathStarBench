@@ -1,9 +1,12 @@
 disabled: false
 reporter:
   logSpans: false
-  localAgentHostPort: "otelcol:6831"
+  localAgentHostPort: "userserviceagent:6831"
   queueSize: 1000000
   bufferFlushInterval: 10
 sampler:
   type: "probabilistic"
   param: 0.1
+
+
+  

@@ -1,0 +1,22 @@
+receivers:
+  jaeger:
+    protocols:
+      thrift_compact:
+
+
+exporters:
+  otlp:
+    endpoint: "compressoragent:4317"
+    compression: none
+    tls:
+      insecure: true
+  debug:
+    verbosity: detailed
+
+service:
+  extensions: []
+  pipelines:
+    traces:
+      receivers: [jaeger]
+      processors: []
+      exporters: [otlp, debug]
