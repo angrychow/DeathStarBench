@@ -313,7 +313,7 @@ services:
     container_name: userserviceagent
     restart: unless-stopped
     volumes:
-      - ./config/user-service-agent-config.yml:/otel/user-service-agent-config.yml
+      - ./config/user-service-agent-config.yml:/app/user-service-agent-config.yml
     ports:
       - "4317"
       - "4318"
@@ -330,7 +330,7 @@ services:
     container_name: compressoragent
     restart: unless-stopped
     volumes:
-      - ./config/agent-config.yml:/otel/agent-config.yml
+      - ./config/agent-config.yml:/app/agent-config.yml
     ports:
       - "4317"
       - "4318"
@@ -346,7 +346,7 @@ services:
     container_name: compressorgateway
     restart: unless-stopped
     volumes:
-      - ./config/gateway-config.yml:/otel/gateway-config.yml
+      - ./config/gateway-config.yml:/app/gateway-config.yml
     command: ["--config", "gateway-config.yml"]
     ports:
       - "4317"
